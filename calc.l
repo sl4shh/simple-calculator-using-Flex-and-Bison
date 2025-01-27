@@ -19,9 +19,12 @@
 
 [-+()=/*\n]     { return *yytext; }
 
-[ \t]   ;       /* skip whitespace */
+[ \t\r]   ;       /* skip whitespace */
 
-.               yyerror("Unknown character");
+.               {
+                    printf("Unknown character: %d\n", *yytext);
+                    yyerror("Unknown character");
+                }
 
 %%
 

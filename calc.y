@@ -8,8 +8,20 @@
 %}
 
 %token INTEGER VARIABLE
-%left '+' '-'
-%left '*' '/'
+
+%{
+    /* Modifie ci dessous les operateurs */
+%}
+
+%right '-' '/'
+
+%{
+    /* Pas touche au reste */
+%}
+
+
+%left '+'
+%left '*'
 %nonassoc UMINUS
 
 %%
